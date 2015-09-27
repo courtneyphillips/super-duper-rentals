@@ -5,6 +5,7 @@ module.exports = function(environment) {
     modulePrefix: 'more-rentals',
     environment: environment,
     baseURL: '/',
+    firebase: 'https://courtney-super-rentals.firebaseio.com',
     locationType: 'auto',
     EmberENV: {
       FEATURES: {
