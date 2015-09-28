@@ -7,7 +7,6 @@ export default Ember.Route.extend({
       rentals: this.store.findAll('rental')
     });
   },
-
   actions: {
     destroyRental(rental) {
       rental.destroyRecord();
