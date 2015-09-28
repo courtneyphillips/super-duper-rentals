@@ -18,6 +18,16 @@ export default Ember.Route.extend({
       var newCity = this.store.createRecord('city', params);
       newCity.save();
       this.transitionTo('city', newCity);
+    },
+    destroyCity(city) {
+      var rental_deletions = city.get('rentals').map(function(rental) {
+        return rental.destroyRecord();
+      });
+      Ember.RSVP.all(rental_deletions)
+      .then(function() {
+        return city.destroyRecord();
+      });
+      this.transitionTo('index');
     }
   }
 });
